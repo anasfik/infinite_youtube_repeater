@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infinity</title>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+
+    <div class="tranitionOverlay">
+      <div class="bgIcon">
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512" width="512" height="512"><title>Infinite</title><path d="M256 256s-48-96-126-96c-54.12 0-98 43-98 96s43.88 96 98 96c30 0 56.45-13.18 78-32M256 256s48 96 126 96c54.12 0 98-43 98-96s-43.88-96-98-96c-29.37 0-56.66 13.75-78 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="48"></path></svg>     
+      </div>
+      <div class="transitionOverlay__content">
+<div class="transitionOverlay__content__title" id="title">
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512" width="512" height="512"><title>Infinite</title><path d="M256 256s-48-96-126-96c-54.12 0-98 43-98 96s43.88 96 98 96c30 0 56.45-13.18 78-32M256 256s48 96 126 96c54.12 0 98-43 98-96s-43.88-96-98-96c-29.37 0-56.66 13.75-78 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="48" class="infinite-svg-1"></path></svg>        </div>        
+    
+       
+      </div>
+    </div>
+  
+
+    <div class="container">
+      <center>
+        <div class="title" id="title">
+          <ion-icon name="infinite-outline"></ion-icon>
+          <h2>infinity .</h2>
+        </div>
+<!--tab bar-->
+        <div class="tabBar" data-li-length="5"> 
+            <!-- to manage it dynamically with js-->
+          <ul>
+                                        <div class="indicator" id="indicator"""></div>
+
+            <li class="active" onclick="activeLi(this)" data-tooltipText="home" >
+              <span>
+                <ion-icon name="home-outline" data-show-delay="1"></ion-icon>
+              </span>
+
+            </li>
+
+            <li onclick="activeLi(this)" data-tooltipText="faq">
+              <span> <ion-icon name="help-outline"></ion-icon> </span>
+            </li>
+
+            <li onclick="activeLi(this)" id="videoButton" data-tooltipText="player">
+           <span><ion-icon name="logo-youtube"></ion-icon></span>
+            </li>
+
+            <li onclick="activeLi(this)" data-tooltipText="bookmarks">
+           <span> <ion-icon name="bookmarks-outline" ></ion-icon> </span>
+            </li>
+
+            <li onclick="activeLi(this)" data-tooltipText="settings">
+              <span> <ion-icon name="settings-outline"  ></ion-icon> </span>
+            </li>
+          </ul>
+        </div>
+
+
+        <div class="subContainer">
+<!-- link section-->
+
+        <div class="section defaultActiveSection">
+          
+
+
+ <div class="linkBar searchBar"  style="visibility: hidden;">
+    <div class="toRelative" >
+<input value="" type="text" placeholder="https://www.youtube.com/watch?v=kgN7veo9tC0" />
+    <ion-icon name="clipboard-outline" class="pasteBtn"></ion-icon>
+</div>
+    </div>
+        <span class="sectionOverlayTitle">Home page</span>
+
+      <div class="box homeBox">
+          <div class="bgIcon">
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512" width="512" height="512"><title>Infinite</title><path d="M256 256s-48-96-126-96c-54.12 0-98 43-98 96s43.88 96 98 96c30 0 56.45-13.18 78-32M256 256s48 96 126 96c54.12 0 98-43 98-96s-43.88-96-98-96c-29.37 0-56.66 13.75-78 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="48"></path></svg>     
+      </div>
+        <div class="twoPartsGrid">
+          <div class="leftPart">
+<h3><span>Infinity ,</span><h3>
+<p> a web app for repeating videos infinity times with your custom playing settings</p>
+<button class="homeBtn" id="tryBtn">try it !</button>
+<button class="homeBtn" id="configureBtn">configure</button>
+
+</div>
+<div class="rightPart">
+<div class="imgBox">
+  <img src="/assets/imgs/SPRK_default_preset_name_custom – 1.png" alt="illustration img"/>
+</div>
+
+</div>
+</div>
+   
+  
+</div>
+
+
+
+
+</div>
+
+
+
+        <div class="section">
+
+          <div class="linkBar searchBar" style="visibility: hidden;">
+    <div class="toRelative">
+<input value="" type="text" placeholder="https://www.youtube.com/watch?v=kgN7veo9tC0">
+    <ion-icon name="clipboard-outline" class="pasteBtn md hydrated" role="img" aria-label="clipboard outline"></ion-icon>
+</div>
+    </div>
+
+          <div class="box">
+
+            
+            <div class="container">
+  <h2 style="padding-top: 10px;">FAQ</h2>
+  <div class="accordion">
+    <div class="accordion-item">
+      <button id="accordion-button-1" aria-expanded="false"><span class="accordion-title">What is this ?</span><span class="icon" aria-hidden="true"></span></button>
+      <div class="accordion-content">
+        <p><b>Infinity</b> is a web app made for personal use but open to eveyone, it's useful when you want to loop a youtube video to infinity, or specify the number repeat times, it comes with ssome good settings specifications such starting from specific time in video, or skipping parts, you can also bookmark videos for future use without sign in, enjoy it :)</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button id="accordion-button-2" aria-expanded="false"><span class="accordion-title">When it's really useful ?</span><span class="icon" aria-hidden="true"></span></button>
+      <div class="accordion-content">
+        <p>When you like some video/song, and you want just to listen to it in looped mode, or you want to play only a part of video without actually downloading it or playing it at some music streaming websites, you can bookmark a video you like it, and it still on your bookmarks page even if you reload the page on the same browser</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button id="accordion-button-3" aria-expanded="false"><span class="accordion-title">How I managed to give a great user Experience ? </span><span class="icon" aria-hidden="true"></span></button>
+      <div class="accordion-content">
+        <p>because I do care about users(even if i made this for personal use hahaha) I added some features that I just wished it exists for other websites I use, such minimizing actions to get things done, such autoplays, simple useful interface, no sign in, no extraction of data, no profiting methods, working on website load speed, no large</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button id="accordion-button-4" aria-expanded="false"><span class="accordion-title">Something went wrong ?</span><span class="icon" aria-hidden="true"></span></button>
+      <div class="accordion-content">
+        <p>
+          I really hope no one need to open this questions because of having problems, but if you find something weird, not working, a testing issue, please be sure first that the problem is in the website, such entering wrong youtube link/id, disabling a thing called localStorage(if you don't knew it you don't have to as user), if it's a bug, please let me know <a href="">here</a>, thanks
+        </p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button id="accordion-button-5" aria-expanded="false"><span class="accordion-title">Who I'am ?</span><span class="icon" aria-hidden="true"></span></button>
+      <div class="accordion-content">
+        <p>my name is <b>ANAS</b>,I had 19 yo the time I created this website, I hope someday... </p>
+      </div>
+    </div>
+  </div>
+</div>
+          </div>
+</div>
+
+        <div class="section" >
+
+<div class="linkBar searchBar">
+    <span>Drop video link or id here :</span>
+    <div class="toRelative">
+<input id="videoIdInput" value="" type="text" placeholder="https://www.youtube.com/watch?v=kgN7veo9tC0" />
+    <ion-icon name="clipboard-outline" class="pasteBtn" id="pasteBtn"></ion-icon>
+
+</div>
+    <div class="emebedVideo">
+      <div class="aboutCurrentVideo">
+        <div class="aboutCurrentVideoBoX" id="bookmarkButton""">
+          <ion-icon name="bookmark-outline"></ion-icon>
+        </div>
+
+
+      </div>
+
+            <div id="player"></div>
+
+    </div>
+    </div></div>
+
+      <div class="section">
+       <div class="linkBar searchBar"  style="visibility: hidden;">
+    <div class="toRelative" >
+<input id="videoIdInput" value="" type="text" placeholder="https://www.youtube.com/watch?v=kgN7veo9tC0" />
+    <ion-icon name="clipboard-outline" class="pasteBtn" id="pasteBtn"></ion-icon>
+</div>
+    </div>
+        <span>Last saved videos :</span>
+
+      <div class="box SavedVideos" id="SavedVideos">
+
+
+
+
+
+
+   
+  
+</div>
+</div>
+
+
+      <div class="section">
+      <div class="linkBar searchBar"  style="visibility: hidden;">
+    <div class="toRelative" >
+<input id="videoIdInput" value="" type="text" placeholder="https://www.youtube.com/watch?v=kgN7veo9tC0" />
+    <ion-icon name="clipboard-outline" class="pasteBtn" id="pasteBtn"></ion-icon>
+</div>
+    </div>
+        <span>Drop video link or id here :</span>
+
+      <div class="box">
+<div class="settingsGrid">
+  <div class="setting">
+    <span>repeat count</span>
+    <div class="reapeatCountBox">
+
+      <input id="repeatCountInput" class="repeatInput" type="number" max="100" min="1" placeholder="0"/>
+      <span> Or</span>
+      <button id="infinityButton" class="activeiInfinityButton"><ion-icon name="infinite-outline"></ion-icon></button>
+    </div>
+  </div>
+   <div class="setting">
+    <span>repeat from : </span>
+    <div class="repeatPartOfVideo">
+
+      <input class="repeatFromInput" id="repeatFromInput" type="text" max="100" min="1" placeholder="00:00"/>
+      <span> To</span>
+            <input class="repeatToInput" id="repeatToInput" type="text" max="100" min="1" placeholder="00:00"/>
+
+    </div>
+  </div>
+
+
+
+    <div class="setting">
+    <span>other settings</span>
+    <div class="reapeatCountBox">
+
+   
+            <button href="#"><ion-icon name="logo-github"></ion-icon></button>
+                  <button id="fullScreenButton"><ion-icon name="expand-outline"></ion-icon></button>
+
+      <button id="exportVideosButton"><ion-icon name="download-outline"></ion-icon></button>
+
+            <button id="resetButton" type="button"><ion-icon name="refresh-outline"></ion-icon></button>
+
+
+    </div>
+  </div>
+   <div class="setting">
+    <span>skip from :</span>
+    <div class="repeatPartOfVideo">
+
+      <input class="skipFromInput" id="skipFromInput" type="text" max="100" min="1" placeholder="0"/>
+      <span> To</span>
+            <input class="skipToInput" id="skipToInput" type="text" max="100" min="1" placeholder="0"/>
+
+    </div>
+  </div>
+</div>
+
+      </div>
+
+</div>
+      </center>
+      </div>
+    </div>
+
+
+    <div class="cretor">
+      Made with <span><ion-icon name="heart"></ion-icon></span> by: <span><a href="">anas fikhi</a></span>
+    </div>
+      <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="/scripts/crel.js" type="text/javascript"></script>
+    <script src="/scripts/main.js" defer></script>
+  </body>
+</html>

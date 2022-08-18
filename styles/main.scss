@@ -1,0 +1,693 @@
+@import "variables";
+@import "fonts";
+@import "mixins";
+@import "keyframes";
+* {
+  font-family: "lato";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.5s cubic-bezier(0.25, 0.75, 0.5, 1.25);
+  &:not([placeholder]) {
+    text-transform: capitalize;
+  }
+}
+
+body {
+  line-height: 1.5;
+  color: $primaryColor;
+  // background-image: url(/assets/imgs/imgs.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  background: #e0e0e0;
+  width: min(100%, 1000px);
+  margin: auto;
+  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(
+  //   to right,
+  //   #38ef7d,
+  //   #11998e
+  // // ); /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(
+  //   to right,
+  //   #38ef7d,
+  //   #11998e
+  // ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  .container {
+    width: $containerWidth;
+    margin: 0 auto;
+
+    .title {
+      color: $primaryColor;
+      ion-icon {
+        margin: 0 0 (-($elementsVerticalMargin)) 0;
+        font-size: $titleInfinityIconSize;
+      }
+    }
+    h2 {
+      display: inline-block;
+      font-weight: 300;
+    }
+    .tabBar {
+      margin: $elementsVerticalMargin 0 0 0;
+      background: #00000000;
+      border-radius: 5px;
+      width: 100%;
+      position: relative;
+      box-shadow: rgb(0 0 0 / 10%) 0px 14px 6px -40px,
+        rgb(0 0 0 / 4%) 0px 20px 49px 66px;
+      ul {
+        position: relative;
+        color: $primaryBgColor;
+        list-style: none;
+        place-items: center;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        width: calc($containerWidth - 50px);
+        .indicator {
+          background: $activeElementColor;
+          width: 4px;
+          height: 4px;
+          position: absolute;
+          border-radius: 100%;
+          top: 80%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        li {
+          cursor: pointer;
+          &:hover {
+            color: #35373a !important;
+          }
+          .active {
+            color: $activeElementColor !important;
+            // &::before {
+            //   background: red;
+            // }
+          }
+
+          &:not(.active) {
+            color: $inactiveElementColor;
+            opacity: 0.7;
+            & before {
+              opacity: 0.8;
+              content: "";
+              background: $inactiveElementColor;
+            }
+          }
+          font-size: $tabBarFontSize;
+          display: flex;
+          place-items: center;
+          justify-content: center;
+          width: calc($tabBarWidth / $taBarItemsCount);
+          height: $elementsHeight;
+
+          & {
+            position: relative;
+            color: $activeElementColor;
+          }
+        }
+      }
+      //@include onHoverShadow;
+    }
+    .linkBar {
+      margin: calc($elementsVerticalMargin * 1.5) 0 0 0;
+      @include onHoverShadow;
+      span {
+        float: left;
+        margin: 0 0 $elementsVerticalMargin/2 0;
+      }
+      input {
+        color: $primaryColor;
+        background-color: $inputsBgColor;
+        width: 100%;
+        border: none;
+        font-size: $inputFontSize;
+        padding: 0 $elementsVerticalMargin;
+        padding: 0 calc($elementsVerticalMargin * 2) 0 $elementsVerticalMargin;
+        @include shadow;
+        height: $inputHeight;
+        border-radius: calc(($elementsBorderRadius / 3));
+        &::placeholder {
+          font-family: $font;
+          opacity: 0.8;
+        }
+        &:focus {
+          outline: none;
+        }
+        @include onHoverShadow;
+      }
+    }
+    .subContainer {
+      width: min(560px, 95%);
+      margin-top: -15px;
+    }
+    .emebedVideo {
+      position: relative;
+      margin: $elementsVerticalMargin 0 0 0;
+      iframe {
+        width: 100%;
+        aspect-ratio: 16/9;
+        height: $iframeHeight;
+        @include shadow;
+
+        border-radius: calc(($elementsBorderRadius / 3));
+      }
+    }
+    .settingsGrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      gap: 0px 0px;
+      grid-template-areas: ". .";
+    }
+  }
+}
+
+.errorInput {
+  border: 1px solid lighten($errorColor, 0.4) !important;
+  color: $errorColor !important;
+}
+
+.toRelative {
+  position: relative;
+  ion-icon {
+    opacity: 0.8;
+    position: absolute;
+    top: 52%;
+    right: 3px;
+    transform: translate(-50%, 50%);
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.sectionClasser {
+  animation: hide 0.4s ease-in-out;
+}
+
+.section {
+  display: none;
+  animation: fadeFromBottom 0.4s;
+  position: relative;
+}
+
+.defaultActiveSection {
+  display: block;
+}
+
+.box {
+  margin: $elementsVerticalMargin 0 0 0;
+  @include shadow;
+  background: $searchBoxBgColor;
+  width: 100%;
+  aspect-ratio: 16/9;
+  height: $iframeHeight;
+  border-radius: calc(($elementsBorderRadius / 3));
+  overflow: scroll;
+}
+
+.settingsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr;
+  gap: 0 0px;
+  height: 60%;
+  margin: 30px 0;
+  grid-template-areas: ". .";
+  .setting {
+    margin-top: $elementsVerticalMargin;
+    margin-bottom: calc($elementsVerticalMargin/4);
+
+    span:first-child {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+  input {
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom: 2px solid #222;
+    padding: 5px 10px;
+    width: 60px;
+    @include shadow;
+    &::placeholder {
+      color: inherit;
+    }
+  }
+  .reapeatCountBox,
+  .repeatPartOfVideo {
+    display: flex;
+    place-content: space-between;
+    width: calc(100% - 80px);
+    align-items: center;
+    span {
+      margin: 10px 0;
+      position: relative;
+      font-size: 12px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        background: $primaryColor;
+        width: 7px;
+        height: 0.5px;
+        top: 50%;
+        left: -10px;
+        transform: translate(-50%, -50%);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        background: $primaryColor;
+        width: 7px;
+        height: 0.5px;
+        top: 50%;
+        right: -10px;
+        transform: translate(50%, -50%);
+      }
+    }
+    button {
+      cursor: pointer;
+      background: darken($primaryBgColor, 1.5);
+      @include shadow;
+      display: grid;
+      place-content: center;
+      width: 35px;
+      height: 35px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: none;
+      font-size: 18px;
+    }
+  }
+}
+
+.activeiInfinityButton {
+  background: $primaryColor !important;
+  color: $primaryBgColor !important;
+  position: relative;
+  &::after {
+    content: "";
+    background: inherit;
+    width: 4px;
+    height: 4px;
+    position: absolute;
+    border-radius: 100%;
+    top: 125%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.aboutCurrentVideo {
+  position: absolute;
+  bottom: 0;
+  color: #1e1e1e;
+  right: -55px;
+  bottom: 15px;
+}
+.aboutCurrentVideoBoX {
+  background: #fff;
+  /* padding: 13px; */
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid $primaryColor;
+  font-size: 22px;
+  height: 40px;
+  width: 40px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: darken($primaryBgColor, 1.5);
+  @include shadow;
+  @include onHoverShadow;
+  background: #c4c5c9;
+}
+.SavedVideos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 14px;
+  padding: 25px;
+  grid-template-areas: ". .";
+  overflow-y: auto;
+  .videoBox {
+    cursor: pointer;
+    position: relative;
+    @include shadow;
+    overflow: clip;
+    opacity: 0.8;
+    height: 140px;
+    &:hover {
+      opacity: 1;
+      img {
+        transform: rotate(-5deg) scale(1.5);
+      }
+    }
+  }
+  img {
+    aspect-ratio: 16/9;
+    z-index: 3;
+    border-radius: 3px;
+    width: 100%;
+    height: 100%;
+  }
+  h2,
+  span {
+    font-size: 15px;
+    text-align: initial;
+    background: $primaryColor;
+    color: #fff;
+    z-index: 3;
+
+    position: absolute;
+    padding: 5px;
+    left: 0;
+    bottom: 25%;
+  }
+  span {
+    bottom: 52%;
+    padding: 5px 10px;
+    bottom: 9%;
+    font-size: 11px;
+  }
+}
+
+.cretor {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #fff;
+  text-transform: none;
+  a {
+    color: #ddd;
+    margin: 0 8px;
+  }
+  ion-icon {
+    margin: 0 1px;
+  }
+}
+
+.tranitionOverlay {
+  position: absolute;
+  inset: 0;
+  background: #e1e1e1;
+  z-index: 2;
+  overflow: hidden;
+  height: 100vh;
+  animation-name: overlayTransition;
+
+  animation-duration: 1s;
+
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-delay: 2s;
+
+  animation-fill-mode: forwards;
+
+  .transitionOverlay__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.5);
+
+    animation-name: iconPositionTransition;
+
+    animation-duration: 1s;
+
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-delay: 1.8s;
+
+    animation-fill-mode: forwards;
+  }
+}
+
+.transitionOverlay__content {
+  .transitionOverlay__content__title {
+    svg {
+      margin: 0 0 (-($elementsVerticalMargin)) 0;
+      width: $titleInfinityIconSize;
+    }
+  }
+}
+
+.bgIcon {
+  position: absolute;
+  top: 50%;
+  left: 34%;
+  transform: translate(-50%, -50%) scale(3.4);
+  opacity: 0.07;
+}
+
+.infinite-svg-1 {
+  animation: animate-svg-stroke-1 1s ease-in-out 0s infinite alternate;
+}
+.homeBox {
+  display: grid;
+  position: relative;
+  align-items: center;
+  overflow: hidden;
+  .bgIcon {
+    position: absolute;
+    top: 50%;
+    left: 46%;
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.06;
+  }
+}
+.twoPartsGrid {
+  color: $primaryColor;
+  // grid with 2 columns
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 14px;
+  padding: 25px;
+  .leftPart {
+    display: grid;
+    place-content: center;
+    text-align: left;
+    button.homeBtn {
+      position: relative;
+      /* padding: 10px 25px; */
+      width: 100px;
+      padding: 11px 0;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 30px 10px 0 0;
+      display: inline-block;
+      color: $primaryColor;
+      background: transparent;
+      border: 2px solid $tabBarBgColor;
+      letter-spacing: 0.8px;
+      overflow: hidden;
+      @include shadow;
+      &:nth-child(2) {
+        border: 2px solid $tabBarBgColor;
+
+        color: $primaryColor;
+
+        background: $tabBarBgColor;
+        &::before {
+          content: "";
+          background: $primaryColor !important;
+        }
+      }
+      &::before {
+        content: "";
+        background: currentColor;
+        width: 3px;
+        height: 3px;
+        position: absolute;
+        border-radius: 100%;
+        top: 85%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: 0.4s;
+        opacity: 0;
+      }
+      &:hover::before {
+        opacity: 1;
+      }
+    }
+    p {
+      font-size: 15px;
+
+      margin: 10px 0 0 0;
+    }
+    h3 {
+      font-size: 35px;
+    }
+  }
+
+  .rightPart {
+    animation: floating 6s cubic-bezier(0.25, 0.75, 0.5, 1.25) infinite;
+    display: grid;
+    align-items: center;
+    img {
+      width: 100%;
+      filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.24));
+    }
+  }
+}
+
+span.sectionOverlayTitle::before {
+  content: "";
+  position: absolute;
+  width: 20%;
+  height: 2px;
+  background: $primaryColor;
+  bottom: -30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+span.sectionOverlayTitle {
+  font-size: 22px;
+  font-weight: 100;
+  position: relative;
+  color: $primaryColor;
+}
+
+div#SavedVideos::-webkit-scrollbar-thumb,
+.box::-webkit-scrollbar-thumb {
+  width: 100%;
+  background: #00000071;
+  border-radius: 5px;
+}
+div#SavedVideos::-webkit-scrollbar,
+.box::-webkit-scrollbar {
+  /* background: #0000; */
+  width: 5px;
+  height: 8px;
+  background-color: #ffffff30;
+}
+
+.accordion {
+  .accordion-item {
+    border-bottom: 1px solid $lightgray;
+    button[aria-expanded="true"] {
+      border-bottom: 1px solid $blue;
+    }
+  }
+  button {
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0;
+    color: $text;
+    font-size: 1.15rem;
+    font-weight: 400;
+    border: none;
+    background: none;
+    outline: none;
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      color: $blue;
+      &::after {
+        cursor: pointer;
+        color: $blue;
+        border: 1px solid $blue;
+      }
+    }
+    .accordion-title {
+      padding: 1em 1.5em 1em 0;
+    }
+    .icon {
+      display: inline-block;
+      position: absolute;
+      top: 18px;
+      right: 0;
+      width: 22px;
+      height: 22px;
+      border: 1px solid;
+      border-radius: 22px;
+      &::before {
+        display: block;
+        position: absolute;
+        content: "";
+        top: 9px;
+        left: 5px;
+        width: 10px;
+        height: 2px;
+        background: currentColor;
+      }
+      &::after {
+        display: block;
+        position: absolute;
+        content: "";
+        top: 5px;
+        left: 9px;
+        width: 2px;
+        height: 10px;
+        background: currentColor;
+      }
+    }
+  }
+  button[aria-expanded="true"] {
+    color: $blue;
+    .icon {
+      &::after {
+        width: 0;
+      }
+    }
+    + .accordion-content {
+      opacity: 1;
+      max-height: 10em;
+      transition: all 200ms linear;
+      will-change: opacity, max-height;
+    }
+  }
+  .accordion-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 200ms linear, max-height 200ms linear;
+    will-change: opacity, max-height;
+    p {
+      font-size: 1rem;
+      font-weight: 300;
+      margin: 2em 0;
+      text-align: left;
+    }
+  }
+}
+
+.accordion {
+  padding: 0px 20px;
+}
+
+.bgIcon {
+  z-index: -1;
+}
+[data-tooltiptext] {
+  transition: 0.2s;
+
+  position: relative;
+  &::after {
+    content: attr(data-tooltiptext);
+    position: absolute;
+    font-size: 15px;
+    color: #fff;
+    background: #000;
+    padding: 2px 7px;
+    border-radius: 4px;
+    bottom: -25%;
+    opacity: 0;
+    transition: 0.2s;
+    text-transform: capitalize;
+  }
+  &:hover::after {
+    opacity: 1;
+    bottom: -30%;
+  }
+}
