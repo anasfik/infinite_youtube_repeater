@@ -1,9 +1,11 @@
 # Infinite Youtube Repeater
 A Featured Web App For Repeating Videos With Infinity Times Loop With Your Custom Playing Settings 
 <br>
-<a href="">view demo here</a>
+<a href="">View demo here</a>
 <div>
+<p align="center">
 <img src="screenshots/logo.png" alt="logo"/>
+</p>
 </div>
 <hr>
 <img src="screenshots/home.png" alt="home page" />
