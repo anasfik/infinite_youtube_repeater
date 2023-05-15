@@ -17,7 +17,7 @@ A Featured Web App For Repeating Videos With Infinity Times Loop With Your Custo
 <img src="screenshots/favorites.png" alt="favorites page" />
 
 ## Features
- - Quick start buttons
+ - Quick start button
  - Read video from different youtube links( youtube.com, youtu.be, m.youtube.com ), video id ( Ex: 7YZCUpnaTfg , don't check this video id hahaha )
  - Paste from keyboard button
  - Auto play video by just pasting option
